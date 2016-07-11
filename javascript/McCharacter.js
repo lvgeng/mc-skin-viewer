@@ -4,7 +4,36 @@ class CubeWithCustomizedTexture {
         // this.position = position;
 
         this.geometry = new THREE.CubeGeometry(x, y, z);
-        this.material = new THREE.MeshPhongMaterial({map: THREE.ImageUtils.loadTexture(initTexturePath)})
+        
+        // THREE.ImageUtils.crossOrigin = '';
+        // var mapOverlay = THREE.ImageUtils.loadTexture('http://i.imgur.com/3tU4Vig.jpg');
+        
+        // instantiate a loader
+        var loader = new THREE.TextureLoader();
+        //allow cross origin loading
+        loader.crossOrigin = '';
+        // load a resource
+        loader.load(initTexturePath,
+            // Function when resource is loaded
+            function ( texture ) {
+                this.material = new THREE.MeshBasicMaterial({map: texture, overdraw: true});
+                console.log('Loading successful');
+            },
+            // Function called when download progresses
+            function ( xhr ) {},
+            // Function called when download errors
+            function ( xhr ) {}
+        );
+
+        // var myImage = new Image();
+        // myImage.src = initTexturePath;
+        // var mapOverlay = new THREE.ImageUtils.loadTexture(myImage.src);
+        // this.material = new THREE.MeshBasicMaterial({map: mapOverlay, needsUpdate: true});
+
+
+
+        // THREE.TextureLoader.prototype.crossOrigin = '';
+        // this.material = new THREE.MeshPhongMaterial({map: THREE.ImageUtils.loadTexture(initTexturePath).texture});
 
         this.geometry.faceVertexUvs[0] = [];
         this.updateTextureMapping(
@@ -19,6 +48,7 @@ class CubeWithCustomizedTexture {
         this.mesh = new THREE.Mesh(this.geometry, this.material);
         this.mesh.position.x = position.x;
     }
+
     updateTexturePath(newTeturePath) {
         this.texturePath = newTeturePath;
     }
