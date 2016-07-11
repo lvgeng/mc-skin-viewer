@@ -1,7 +1,7 @@
-function button_skin_update_init(){
+function button_skin_update_init(character){
 	button_skin_update = document.getElementById("button_skin_update");
 	button_skin_update.addEventListener("click", function(){
-		// update_skin();
+		character.update_skin(document.getElementById("skin_path_textbox").value);
 		});
 	console.log("button_skin_update fire");
 }

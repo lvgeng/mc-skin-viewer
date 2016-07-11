@@ -11,12 +11,10 @@
         <script src="./threejs/js/controls/OrbitControls.js"></script>
         <script src="./threejs/js/Detector.js"></script>
         <script src="./threejs/js/libs/stats.min.js"></script>
-
 <!--         <script src="./threejs/js/loaders/OBJMTLLoader.js"></script>
         <script src="./threejs/js/loaders/OBJLoader.js"></script>
         <script src="./threejs/js/loaders/DDSLoader.js"></script>
         <script src="./threejs/js/loaders/MTLLoader.js"></script> -->
-
     </head>
 
     <body>
@@ -27,8 +25,9 @@
                 <option path = "models_for_test/Lol_Katarina_Default/Lol_Katarina_Default" type = "OBJMTL" scale = 2 selected="selected">lol</option>
                 <option path = "models_for_test/Gemini/Gemini" type = "OBJMTL" scale = 6 >Gemini</option>
             </select> -->
-            <p>Input the source url</p>
+            <p>Input the source url. (Images should be host on a domain allow cross-domain access)</p>
             <div id = "skin_update">
+                Skin URL: <input type="text" id="skin_path_textbox" value = "https://hydra-media.cursecdn.com/minecraft.gamepedia.com/5/54/Skintemplate.png">
                 <button id = "button_skin_update">Update skin</button>
             </div>            
         </div>

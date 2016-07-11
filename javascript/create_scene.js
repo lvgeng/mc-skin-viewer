@@ -32,10 +32,11 @@ function create_scene_basic() {
 	var directionalLight = new THREE.DirectionalLight( 0xffffff );
 	directionalLight.position.set( 0, 0, -1 ).normalize();
 	scene.add( directionalLight );
+	
 	// Grid
 	var line_material = new THREE.LineBasicMaterial( { color: 0x999999 } ),
 	geometry = new THREE.Geometry(),
-	floor = -20, step = 10;
+	floor = 0, step = 10;
 	for ( var i = 0; i <= 20; i ++ ) {
 		geometry.vertices.push( new THREE.Vector3( - 100, floor, i * step - 100 ) );
 		geometry.vertices.push( new THREE.Vector3(   100, floor, i * step - 100 ) );
@@ -73,8 +74,8 @@ function creat_controls_for_camera(camera, canvas_to_render){
 	controls.target = new THREE.Vector3(0,0,0);
 	controls.enableZoom = true;
 	controls.enablePan = false;
-	controls.minPolarAngle = Math.PI/13*6; // radians
-	controls.maxPolarAngle = Math.PI/13*7; // radians
+	controls.minPolarAngle = Math.PI/13*3; // radians
+	controls.maxPolarAngle = Math.PI/13*10; // radians
 
 	controls.autoRotate = false;
 	controls.autoRotateSpeed = 2.0;

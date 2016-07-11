@@ -20,12 +20,13 @@ function animate() {
 
 function init() {
 
-	button_skin_update_init();
+	
 	scene = create_scene_basic();
 	// manager_for_loading = create_manager_for_loading();
 	// character = new CubeWithCustomizedTexture(10,10,10, new THREE.Vector3(0,0,0), './assets/texture-atlas.jpg');
-	character = new CubeWithCustomizedTexture(10,10,10, new THREE.Vector3(0,0,0), 'https://i.dailymail.co.uk/i/pix/2016/03/22/13/32738CEB00000578-3504412-image-a-4_1458654503277.jpg');
-	scene.add( character.mesh );
+	// character = new CubeWithCustomizedTexture(10,10,10, new THREE.Vector3(0,0,0), 'https://hydra-media.cursecdn.com/minecraft.gamepedia.com/5/54/Skintemplate.png');
+	character = new McCharacter(scene, 4, new THREE.Vector3(0,0,0), "https://hydra-media.cursecdn.com/minecraft.gamepedia.com/5/54/Skintemplate.png");
+	button_skin_update_init(character);
 
 	// renderer
 	canvas_to_render = document.getElementById('canvas_for_three');
