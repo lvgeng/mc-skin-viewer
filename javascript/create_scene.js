@@ -64,14 +64,14 @@ function create_renderer(canvas_to_render){
 
 function create_camera(controls_for_camera){
 	var camera = new THREE.PerspectiveCamera( 30, renderer.domElement.width / renderer.domElement.height , 1, 1000 );
-	camera.position.z = 100;
-	camera.position.y = 0;
+	camera.position.z = 80;
+	camera.position.y = 20;
 	return camera;
 }
 
 function creat_controls_for_camera(camera, canvas_to_render){
 	var controls = new THREE.OrbitControls(camera, renderer.domElement);
-	controls.target = new THREE.Vector3(0,0,0);
+	controls.target = new THREE.Vector3(0,10,0);
 	controls.enableZoom = true;
 	controls.enablePan = false;
 	controls.minPolarAngle = Math.PI/13*3; // radians

@@ -25,7 +25,15 @@ function init() {
 	// manager_for_loading = create_manager_for_loading();
 	// character = new CubeWithCustomizedTexture(10,10,10, new THREE.Vector3(0,0,0), './assets/texture-atlas.jpg');
 	// character = new CubeWithCustomizedTexture(10,10,10, new THREE.Vector3(0,0,0), 'https://hydra-media.cursecdn.com/minecraft.gamepedia.com/5/54/Skintemplate.png');
-	character = new McCharacter(scene, 4, new THREE.Vector3(0,0,0), "https://hydra-media.cursecdn.com/minecraft.gamepedia.com/5/54/Skintemplate.png");
+	var url = document.getElementById("skin_path_textbox").value;
+	document.getElementById("skin_preview").src = url;
+
+
+	character = new McCharacter(
+		scene, 4, new THREE.Vector3(0,0,0), 
+		// "https://hydra-media.cursecdn.com/minecraft.gamepedia.com/5/54/Skintemplate.png"
+		document.getElementById("skin_path_textbox").value
+		);
 	button_skin_update_init(character);
 
 	// renderer

@@ -2,11 +2,11 @@ class CubeWithCustomizedTexture {
     constructor(x,y,z, position, initTexturePath) {
         // this.scale = scale;
         // this.position = position;
-
         this.geometry = new THREE.CubeGeometry(x, y, z);
-
-        // THREE.ImageUtils.crossOrigin = '';
+        THREE.ImageUtils.crossOrigin = 'anonymous';
         this.material = new THREE.MeshPhongMaterial( {map: THREE.ImageUtils.loadTexture(initTexturePath)} );
+
+        // this.material = new THREE.MeshPhongMaterial( {map: document.getElementById("skin_preview").texture} );
 
         this.geometry.faceVertexUvs[0] = [];
         this.updateTextureMapping(
@@ -140,7 +140,11 @@ class McCharacter {
     }
     update_skin(new_skin_path){
         this.head.updateTexturePath(new_skin_path);
-        this.head.updateTexturePath(new_skin_path);
+        this.body.updateTexturePath(new_skin_path);
+        this.leftLeg.updateTexturePath(new_skin_path);
+        this.leftArm.updateTexturePath(new_skin_path);
+        this.rightLeg.updateTexturePath(new_skin_path);
+        this.rightArm.updateTexturePath(new_skin_path);
     }
 }
 
